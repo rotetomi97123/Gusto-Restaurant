@@ -11,17 +11,18 @@ const Button = () => {
 
 const Btn = styled.button`
     cursor:pointer;
+    min-width: 200px;
+    height: 50px;
     background: none;
-    height:30px;
     font-weight:400;
-    border:none;
-    border-bottom: 1px solid #CDBE70;
-    color: white;
+    border: 1px solid #CDBE70;
+    color:  #CDBE70;
     font-size: 1.5rem;
     font-family: 'Montserrat', sans-serif;
     &:hover{
-        color:  #CDBE70;
-        transition: 0.1s;
+        color:  white;
+        border: 1px solid white;
+        transition: 0.2s;
     }
 `
 

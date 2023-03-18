@@ -28,20 +28,57 @@ const HeroWrapper = styled.div`
   height:90vh;
   justify-content:space-around;
   align-items: center;
+  @media (max-width: 1450px){
+    flex-direction: column;
+    justify-content:flex-start;
+    margin-top:2rem;
+    height:100vh;
+  }
+  @media (max-width: 900px) {
+    height:85vh;
+  }
+  @media (max-width: 600px){
+    padding: 2rem 2rem;
+  }
+  @media (max-width: 400px){
+    padding: 0rem 1rem;
+  }
   img {
     max-width: 800px;
+    @media (max-width: 900px) {
+      max-width: 500px;
+    }
+    @media (max-width: 550px) {
+      max-width: 400px;
+      margin-top:1rem;
+    }
+    @media (max-width: 450px) {
+      max-width: 300px;
+    }
+    @media (max-width: 350px) {
+      max-width: 200px;
+    }
+    @media (max-width: 250px) {
+      max-width: 150px;
+    }
   }
 `
 const BigText = styled.h1`
   font-size: 5rem;
   color: #CDBE70;
   min-widht:100px;
+  @media (max-width: 900px){
+    font-size: 3rem;
+  }
 `
 const SampleText = styled.p`
   font-size: 1.1rem;
   color:white;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  @media (max-width: 900px) {
+    font-size: 0.9rem;
+  }
 `
 
 export default Hero
