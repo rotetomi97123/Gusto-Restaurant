@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import logo from '../assets/gericht.png'
+import logo from '../assets/logo3.png'
 import styled from 'styled-components'
 import {  RxHamburgerMenu } from 'react-icons/rx'
 import { motion, AnimatePresence  } from 'framer-motion';
