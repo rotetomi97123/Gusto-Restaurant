@@ -19,5 +19,6 @@ const PageHome = styled.div`
   height: 500vh;
   background-color: #0A0A0A;
   font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
 `
 export default Home

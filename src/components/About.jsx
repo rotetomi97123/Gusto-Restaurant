@@ -1,11 +1,11 @@
 import React from 'react'
 import black from '../assets/black.png'
-import gold from '../assets/huge5.png'
+import gold from '../assets/huge6.png'
 import styled from 'styled-components'
 
 const About = () => {
   return (
-    <Wrapper>
+    <Wrapper id='about'>
         <Section>
             <p>Welcome to our luxurious steak restaurant,<br /> where we are passionate about providing our guests with a premium dining experience. </p>
         </Section>
