@@ -27,11 +27,9 @@ const Navbar = () => {
     <NavWrapper>
         <img src={logo} alt="logo"  />
         <Ulwrapper>
-            <li>Home</li>
-            <li>About</li>
-            <li>Menu</li>
-            <li>Awards</li>
-            <li>Contact</li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
         </Ulwrapper>
         <LogInWrapper>
             <h2>Log In / Register</h2>
@@ -52,8 +50,6 @@ const Navbar = () => {
                 <li>Home</li>
                 <li>About</li>
                 <li>Menu</li>
-                <li>Awards</li>
-                <li>Contact</li>
                 <LogInWrapperMobil>
                     <h2>Log In / Register</h2>
                     <h2>Book Table</h2>
@@ -125,11 +121,15 @@ const Ulwrapper = styled.ul`
     font-size: 1.2rem;
     list-style-type: none;
     li {
-        margin-right: 1.5rem;
-        cursor: pointer;
-        &:hover {
-            color: #CDBE70;
-            transition: 0.4s;
+        a{
+            color: white;
+            margin-right: 1.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            &:hover {
+                color: #CDBE70;
+                transition: 0.4s;
+            }
         }
     }
     @media (max-width: 1200px) {

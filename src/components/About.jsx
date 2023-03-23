@@ -25,6 +25,11 @@ const Wrapper = styled.div`
     width: 100%;
     height: 100vh;
     display:flex;
+    @media (max-width: 1450px){
+        flex-direction: column;
+        height: 110vh;
+        margin-top:5rem;
+    }
 `
 const Section = styled.div`
     width: 34%;
@@ -36,19 +41,34 @@ const Section = styled.div`
     padding: 0rem 2rem;
     font-size: 1.5rem;
     line-height: 2rem;
-`
-const Title = styled.h1`
-    font-size: 5rem;
-    color: #CDBE70;
+    @media (max-width: 1450px){
+        width: 100%;
+        height:34%;
+        padding: 2rem 2rem;
+    }
+    @media (max-width: 400px){
+        font-size: 1.2rem;
+    }
 `
 const SectionImg = styled.div`
     width: 34%;
     height:100%;
-    text-align: center;
+    @media (max-width: 1450px){
+        width: 100%;
+        height:34%;
+        display: flex;
+        justify-content:center;
+    }
 `
 const Image = styled.img`
     width: 600px;
     height: 100%;
+    @media (max-width: 1500px){
+        width: 500px;
+    }
+    @media (max-width: 1450px){
+        width: 250px;
+    }
 `
 
 export default About
