@@ -5,6 +5,7 @@ import {  RxHamburgerMenu } from 'react-icons/rx'
 import { motion, AnimatePresence  } from 'framer-motion';
 import { GiKnifeFork } from 'react-icons/gi'
 
+
 const Navbar = () => {
 
     const [active , setActive] = useState(false)
@@ -29,7 +30,8 @@ const Navbar = () => {
         <Ulwrapper>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#menu">Menu</a></li>
+            <li><a href="#popular">Popular</a></li>
+            <li><a href="#chefscorner">Chef's Corner</a></li>
         </Ulwrapper>
         <LogInWrapper>
             <h2>Log In / Register</h2>
@@ -47,9 +49,10 @@ const Navbar = () => {
                 animate={active ? 'open' : 'closed'}
                 exit="exit"
                 >
-                <li>Home</li>
-                <li>About</li>
-                <li>Menu</li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#popular">Popular</a></li>
+                <li><a href="#chefscorner">Chef's Corner</a></li>
                 <LogInWrapperMobil>
                     <h2>Log In / Register</h2>
                     <h2>Book Table</h2>
@@ -141,23 +144,28 @@ const MobileUl = styled(motion.ul)`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 1.5rem;
-    font-weight:600;
-    list-style-type: none;
-    background-color:  #2E2E2E;
-    border: 2px solid #2E2E2E ;
     height: 300px;
     width: 200px;
+    background-color:#CDBE70;
     border-radius: 20px ;
     position: absolute;
+    list-style-type: none;
     top:100px;
     right: 50px;
     li {
-        cursor: pointer;
         margin-bottom: 1rem;
+    }
+    li a{
+        cursor: pointer;
+        margin-bottom: 2rem;
+        color: white;
+        font-size: 1.5rem;
+        font-weight:600;
+        margin-bottom: 2rem;
+        list-style-type: none;
+        text-decoration: none;
         &:hover {
-            color: #CDBE70;
+            color: #0A0A0A;
             transition: 0.4s;
         }
     }
@@ -199,7 +207,7 @@ const LogInWrapperMobil = styled.div`
         margin-bottom: 1rem;
         cursor: pointer;
         &:hover {
-            color: #CDBE70;
+            color: #0A0A0A;
             transition: 0.4s;
         }
         @media (max-width: 800px){

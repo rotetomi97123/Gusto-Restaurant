@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { AiFillInstagram } from 'react-icons/ai'
+
 
 const slides = [
     { id: 1, image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=780&q=80' },
@@ -17,23 +18,55 @@ const slides = [
   ];
 
 const SliderComponent = () => {
-     const [insta , setInsta] = useState(false)
+
+    const [options, setOptions] = useState({
+        perPage: 4,
+        type: "loop",
+        pagination: false,
+        arrows: false,
+        gap: "1rem",
+        autoplay: false,
+      });
+    
+      useEffect(() => {
+        const updateOptions = () => {
+          if (window.innerWidth <= 500) {
+            setOptions({
+              perPage: 1,
+              type: "slide",
+              pagination: true,
+              arrows: false,
+              gap: 0,
+              autoplay: true,
+            });
+          } else {
+            setOptions({
+              perPage: 4,
+              type: "loop",
+              pagination: false,
+              arrows: false,
+              gap: "1rem",
+              autoplay: false,
+            });
+          }
+        };
+        window.addEventListener("resize", updateOptions);
+        updateOptions();
+        return () => {
+          window.removeEventListener("resize", updateOptions);
+        };
+      }, []);
+
     return (
-        <Wrapper>
+        <Wrapper id='popular'>
             <Title>Our Most Popular Dishes: Tried and True Favorites</Title>
-        <Splide options={{
-            perPage:4,
-            arrows: false,
-            pagination: false,
-            drag: 'free',
-            gap: '5rem',
-           }}>
+        <Splide options={options}>
         {slides.map((images) => {
             return(
                 <SplideSlide id={images.id} key={images.id}>
-                     <Card onMouseEnter={setInsta(prev=>!prev)}>
+                     <Card>
                     <img src={images.image} alt="kep" />
-                    <Insta style={insta ? 'display:flex' : 'display: none'}  />
+                    <Insta />
                      </Card>
                      <Gradient />
                 </SplideSlide>
@@ -43,16 +76,19 @@ const SliderComponent = () => {
           </Wrapper>
       );
 };
+
 const Wrapper = styled.div`
     padding: 0rem 1rem;
 `
 const Insta = styled(AiFillInstagram)`
     position: absolute;
-    color: white;
+    color: #CDBE70;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 4rem;
+    font-size: 5rem;
+    opacity:0;
+    transition: 0.3s ease;
 `
 const Title = styled.h1`
     font-size: 3rem;
@@ -60,11 +96,19 @@ const Title = styled.h1`
     color: #CDBE70;
     text-align: center;
     margin-bottom: 5rem;
+    @media (max-width: 600px){
+      font-size: 2rem;
+    }
 `
 const Card = styled.div`
+
   min-height: 25rem;
   boder-radius: 2rem;
   overflow:hidden;
+  cursor: pointer;
+    &:hover ${Insta} {
+    opacity: 1;
+  }
   }
   img{
     border-radius: 1rem;
@@ -74,7 +118,7 @@ const Card = styled.div`
     height: 100%;
     object-fit: cover;
     &:hover{
-        opacity: 50%;
+        opacity: 30%;
         transition: 0.4s;
     }
   }
