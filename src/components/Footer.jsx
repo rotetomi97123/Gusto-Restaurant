@@ -10,6 +10,9 @@ const Footer = () => {
   return (
     <Wrapper>
         <Section>
+            <h3>Contact Us</h3>
+            <p>9 W 53rd St, New York, NY 10019, USA <br />
+                +1 212-344-1230 +1 212-555-1230</p>
        </Section>
         <Section1>
             <img src={logo} alt="logo" />
@@ -25,7 +28,9 @@ const Footer = () => {
             </Rights>
         </Section1>
         <Section>
-          
+            <h3>Working Hours</h3>
+            <p>Monday-Friday:<br /> 08:00 Am -12:00 Am
+               Saturday-Sunday:<br /> 07:00am -11:00 Pm</p>
         </Section>
     </Wrapper>
   )
@@ -40,10 +45,24 @@ const Wrapper = styled.div`
     background-size: cover;
     background-repeat: repeat;
     background-attachment: fixed;
+    position:relative;
+    @media (max-width: 1450px){
+        height:100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 `
 const Rights = styled.p`
     color: grey;
     margin-top:5rem;
+    @media (max-width: 1450px){
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    text-align: center;
+    }
+
 `
 const Paragraph = styled.p`
     color: white;
@@ -93,6 +112,20 @@ const Section1 = styled.div`
 const Section = styled.div`
     width: 30%;
     height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    h3{
+        color: white;
+        font-size: 1.5rem;
+        padding-bottom:1rem;
+    }
+    p {
+        color:white;
+        line-height: 1.5rem;
+    }
 `
 
 export default Footer

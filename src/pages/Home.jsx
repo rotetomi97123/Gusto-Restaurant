@@ -3,7 +3,6 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import styled from 'styled-components'
 import About from '../components/About'
-import Serving from '../components/Serving'
 import SliderComponent from '../components/Images'
 import ChefsCorner from '../components/ChefsCorner'
 import Newsletter from '../components/Newsletter'
@@ -17,7 +16,6 @@ const Home = () => {
         <Navbar />
         <Hero />
         <About />
-        <Serving />
         <SliderComponent />
         <ChefsCorner />
         <BG>

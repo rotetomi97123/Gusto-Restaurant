@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { AiFillInstagram } from 'react-icons/ai'
+import Spoon from './Spoon'
 
 
 const slides = [
@@ -59,7 +60,10 @@ const SliderComponent = () => {
 
     return (
         <Wrapper id='popular'>
+          <TextWrap>
+            <Spoon text="Photo Galery" />
             <Title>Our Most Popular Dishes: Tried and True Favorites</Title>
+          </TextWrap>
         <Splide options={options}>
         {slides.map((images) => {
             return(
@@ -80,6 +84,13 @@ const SliderComponent = () => {
 const Wrapper = styled.div`
     padding: 0rem 1rem;
 `
+const TextWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 1rem;
+`
 const Insta = styled(AiFillInstagram)`
     position: absolute;
     color: #CDBE70;
@@ -88,7 +99,8 @@ const Insta = styled(AiFillInstagram)`
     transform: translate(-50%, -50%);
     font-size: 5rem;
     opacity:0;
-    transition: 0.3s ease;
+    transition: 0.2s ease;
+    pointer-events: none;
 `
 const Title = styled.h1`
     font-size: 3rem;
@@ -101,11 +113,11 @@ const Title = styled.h1`
     }
 `
 const Card = styled.div`
-
   min-height: 25rem;
   boder-radius: 2rem;
   overflow:hidden;
   cursor: pointer;
+  z-index: 10;
     &:hover ${Insta} {
     opacity: 1;
   }
@@ -119,7 +131,7 @@ const Card = styled.div`
     object-fit: cover;
     &:hover{
         opacity: 30%;
-        transition: 0.4s;
+        transition: 0.2s;
     }
   }
   `
