@@ -9,7 +9,7 @@ const Hero = () => {
     <HeroWrapper>
       <div>
         <Spoon text="Chase The New Flavour" />
-        <BigText>THE KEY TO <br/>FINE DINING</BigText>
+        <BigText>WHERE EVERY DISH IS <br /> A WORK OF ART</BigText>
         <SampleText>Join us for an unforgettable dining
           experience.<br/> Our menu offers a variety of 
           dishes made with fresh,<br/> high-quality 
@@ -64,7 +64,7 @@ const HeroWrapper = styled.div`
   }
 `
 const BigText = styled.h1`
-  font-size: 5rem;
+  font-size: 4rem;
   color: #CDBE70;
   min-widht:100px;
   @media (max-width: 900px){

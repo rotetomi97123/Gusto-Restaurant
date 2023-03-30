@@ -10,20 +10,21 @@ const Button = () => {
 }
 
 const Btn = styled.button`
-    cursor:pointer;
-    min-width: 200px;
-    height: 50px;
-    background: none;
-    font-weight:400;
-    border: 1px solid #CDBE70;
-    color:  #CDBE70;
-    font-size: 1.5rem;
-    font-family: 'Montserrat', sans-serif;
-    &:hover{
-        color:  white;
-        border: 1px solid white;
-        transition: 0.2s;
-    }
+  cursor:pointer;
+  min-width: 250px;
+  height: 60px;
+  background: none;
+  font-weight:400;
+  border: 1px solid white;
+  color:  white;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  &:hover{
+      background-color: #CDBE70;
+      color:   #0A0A0A;
+      border: 1px solid   #0A0A0A;
+      transition: 0.4s ease;
+}
 `
 
 export default Button

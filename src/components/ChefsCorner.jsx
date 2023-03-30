@@ -2,6 +2,7 @@ import React from 'react'
 import ChefData from './ChefData'
 import styled from 'styled-components'
 import black from '../assets/black.png'
+import Spoon from './Spoon'
 
 const ChefsCorner = () => {
     const [count, setCount] = React.useState(0)
@@ -22,6 +23,7 @@ const ChefsCorner = () => {
     }
     return(
         <Wrapper id='chefscorner'>
+            <Spoon text="Chef's Corner" />
             <PositionDiv>
                 <LeftArrow onClick={minus}>&lt;</LeftArrow>
                 <ImgWrapper>
@@ -44,9 +46,9 @@ const Wrapper = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 7rem;
 `
 const PositionDiv = styled.div`
     position: relative;
@@ -55,6 +57,7 @@ const PositionDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 5rem;
     flex-direction: column;
     @media (max-width: 700px){
         padding: 1rem 1rem;
@@ -68,6 +71,9 @@ const PositionDiv = styled.div`
 
 `
 const ImgWrapper = styled.div`
+    border: 6px solid #CDBE70;
+    background-color: #F5F5F5;
+    box-shadow: 0px 0px 5px 1px #888888;
     position: relative; 
     width: 300px; 
     height: 300px; 
@@ -90,11 +96,14 @@ const Text = styled.p`
     color: white;
     max-width: 700px;
     margin-top: 2rem;
-    font-size: 1rem;
-    line-height:1.2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    line-height:1.5rem;
 `
 const Job = styled.p`
     color:  #CDBE70;
+    font-weight:600;
 `
 const RightArrow = styled.div`
     color: #CDBE70;

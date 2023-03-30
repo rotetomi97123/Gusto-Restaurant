@@ -26,14 +26,17 @@ const Wrapper = styled.div`
 const Letter = styled.div`
     width:100%;
     height:20vh;
-    border: 1px solid #CDBE70;
+    border-top: 2px solid #CDBE70;
+    border-bottom: 1px solid #CDBE70;
+    box-shadow: 0px 0px 5px 1px #888888;
     background-color:#0A0A0A;
 `
 const LetterBody = styled.div`
     position: absolute;
     width: 800px;
-    border: 1px solid #CDBE70;
+    border: 2px solid #CDBE70;
     height:300px;
+    box-shadow: 0px 0px 5px 1px #888888;
     background-color: #0A0A0A;
     top: 35.5%;
     left: 50%;

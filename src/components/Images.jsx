@@ -4,6 +4,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { AiFillInstagram } from 'react-icons/ai'
 import Spoon from './Spoon'
+import { Cocktails } from './ChefData';
 
 
 const slides = [
@@ -22,7 +23,8 @@ const SliderComponent = () => {
 
     const [options, setOptions] = useState({
         perPage: 4,
-        type: "loop",
+        type: 'slide',
+        rewind: false,
         pagination: false,
         arrows: false,
         gap: "1rem",
@@ -57,7 +59,7 @@ const SliderComponent = () => {
           window.removeEventListener("resize", updateOptions);
         };
       }, []);
-
+      
     return (
         <Wrapper id='popular'>
           <TextWrap>
@@ -77,12 +79,32 @@ const SliderComponent = () => {
             )
         })};
         </Splide>
+        <ButtonWrapper>
+          <Button>Show More</Button>
+        </ButtonWrapper>
+        <TextWrap>
+            <Title>Drink Specials</Title>
+          </TextWrap>
+        <Splide options={options}>
+        {Cocktails.map((images) => {
+            return(
+                <SplideSlide id={images.id} key={images.id}>
+                     <Card>
+                    <img src={images.image} alt="kep" />
+                    <Insta />
+                     </Card>
+                     <Gradient />
+                </SplideSlide>
+            )
+        })};
+        </Splide>
           </Wrapper>
       );
 };
 
 const Wrapper = styled.div`
-    padding: 0rem 1rem;
+    padding: 2rem 1rem;
+
 `
 const TextWrap = styled.div`
   display: flex;
@@ -90,6 +112,30 @@ const TextWrap = styled.div`
   align-items: center;
   flex-direction: column;
   padding-top: 1rem;
+`
+const ButtonWrapper = styled.div`
+  width:  100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+`
+const Button = styled.button`
+  cursor:pointer;
+  min-width: 250px;
+  height: 60px;
+  background: none;
+  font-weight:400;
+  border: 1px solid white;
+  color:  white;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  &:hover{
+      background-color: #CDBE70;
+      color:   #0A0A0A;
+      border: 1px solid   #0A0A0A;
+      transition: 0.4s ease;
+  }
 `
 const Insta = styled(AiFillInstagram)`
     position: absolute;

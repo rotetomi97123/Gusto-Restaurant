@@ -9,6 +9,7 @@ import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
 import black from '../assets/black.png'
 
+
 const Home = () => {
   return (
     <div>

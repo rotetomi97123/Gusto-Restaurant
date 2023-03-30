@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import {  RxHamburgerMenu } from 'react-icons/rx'
 import { motion, AnimatePresence  } from 'framer-motion';
 import { GiKnifeFork } from 'react-icons/gi'
+import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -26,17 +27,17 @@ const Navbar = () => {
 
   return (
     <NavWrapper>
-        <img src={logo} alt="logo"  />
+        <Link to="/Menu"><img src={logo} alt="logo"  /></Link>
         <Ulwrapper>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#popular">Popular</a></li>
-            <li><a href="#chefscorner">Chef's Corner</a></li>
+            <li><a href="#home"><Link to="/">Home</Link></a></li>
+            <li><a href="#about"><Link to="">Our Story</Link></a></li>
+            <li><a href="#popular"><Link to="">Popular Dishes</Link></a></li>
+            <li><a href="#chefscorner"><Link to="">Chef's Corner</Link></a></li>
         </Ulwrapper>
         <LogInWrapper>
-            <h2>Log In / Register</h2>
+            <StyledLink to="/Menu"><AnimatedHeading>Menu</AnimatedHeading></StyledLink>
             <Line>|</Line>
-            <h2>Book Table</h2>
+            <StyledLink to="/Menu"><AnimatedHeading >Book a table</AnimatedHeading ></StyledLink>
         </LogInWrapper>
         <HamburgerMenu onClick={() => {setActive(!active)}}>
             {active ? <GiKnifeFork />  : <RxHamburgerMenu /> }
@@ -54,7 +55,7 @@ const Navbar = () => {
                 <li><a href="#popular">Popular</a></li>
                 <li><a href="#chefscorner">Chef's Corner</a></li>
                 <LogInWrapperMobil>
-                    <h2>Log In / Register</h2>
+                    <h2>Menu</h2>
                     <h2>Book Table</h2>
                 </LogInWrapperMobil>
             </MobileUl>}
@@ -68,8 +69,8 @@ const Navbar = () => {
 
 const menuVariants = {
     open: {
-      x: 0,
-      transition: {
+        x: 0,
+        transition: {
         duration: 0.5,
         type: 'spring',
         stiffness: 120,
@@ -102,7 +103,8 @@ const NavWrapper = styled.div`
     height: 10vh;
     position: relative;
     justify-content: space-between;
-img {
+ img {
+    width: 85%;
     padding: 1rem 10rem 1rem 10rem;
     cursor: pointer;
 }
@@ -126,7 +128,7 @@ const Ulwrapper = styled.ul`
     li {
         a{
             color: white;
-            margin-right: 1.5rem;
+            margin-right: 0.5rem;
             cursor: pointer;
             text-decoration: none;
             &:hover {
@@ -173,25 +175,61 @@ const MobileUl = styled(motion.ul)`
         height: 350px;
     }
 `
+const StyledLink = styled(Link)`
+    text-decoration: none ;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+`
 const LogInWrapper = styled.div`
     display: flex;
     align-items: center;
     color: white;
     margin-left: 0rem;
     border-bottom: 1px solid transparent;
+    text-decoration: none;
     h2 {
-        font-size: 1rem;
+        text-decoration: none;
+        border:none;
+        border-bottom: none;
+        font-size: 1.2rem;
         margin-right: 1rem;
         cursor: pointer;
         &:hover {
             border-bottom: 1px solid #CDBE70;
             transition: 0.4s;
         }
+        
     @media (max-width: 800px){
         display: none;
     }
     }
 `
+const AnimatedHeading = styled.h1`
+  position: relative;
+  display: inline-block;
+  font-size: 1.2rem;
+  padding-bottom: 5px;
+  color: white;
+  margin-right: 1rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #CDBE70;
+    transition: all 0.4s ease-in-out;
+  }
+
+  &:hover::after {
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+`;
 const LogInWrapperMobil = styled.div`
     display: none;
     flex-direction: column;
@@ -203,6 +241,7 @@ const LogInWrapperMobil = styled.div`
         align-items: center;
     }
     h2 {
+        color: white;
         font-size: 1.2rem;
         margin-bottom: 1rem;
         cursor: pointer;
