@@ -47,5 +47,117 @@ export const reviews = [
     { id: 8, image: 'https://images.unsplash.com/photo-1618183479302-1e0aa382c36b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' },
     { id: 9, image: 'https://images.unsplash.com/photo-1587888637140-849b25d80ef9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' },
   ]
+  export const Menu_appetizer = [
+    { 
+      id: 1, 
+      image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" ,
+      name: "Bruschetta" ,
+      text: "toasted bread topped with garlic, tomatoes, and olive oil."
+    
+    },
+    { 
+      id: 2,
+      image: "https://assets.bonappetit.com/photos/57acca3a53e63daf11a4da05/1:1/w_3145,h_3145,c_limit/mozzarella-sticks.jpg" ,
+      name: "Mozzarella sticks",
+      text: "breaded and fried cheese sticks served with marinara sauce."
+    },
+    { id: 3,
+      image: "https://images.unsplash.com/photo-1626895597772-74988e263fab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" ,
+      name: "Deviled eggs",
+      text: "boiled eggs filled with a mixture of egg yolks, mayonnaise, mustard, and spices."
+    },
+    { 
+      id: 4, 
+      image: "https://amindfullmom.com/wp-content/uploads/2021/12/Healthy-Crab-Cake-Recipe.jpg" ,
+      name: "Crab cakes",
+      text: "fried cakes made from crab meat, breadcrumbs, and spices."
+    },
+    { 
+      id: 5, 
+      image: "https://images.unsplash.com/photo-1637949385162-e416fb15b2ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1152&q=80" ,
+      name: "Hummus",
+      text: "a dip made from mashed chickpeas, tahini, lemon juice, and garlic."
+    },
+    { 
+      id: 6, 
+      image: "https://images.unsplash.com/photo-1603133872575-9989ab68d24c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1113&q=80" ,
+      name: "Fried calamari",
+      text: "breaded and fried squid served with marinara sauce."
+    },
+    { 
+      id: 7, 
+      image: "https://images.unsplash.com/photo-1595587870672-c79b47875c6a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1046&q=80" ,
+      name: "Caprese salad",
+      text: "a salad made with sliced tomatoes, mozzarella cheese, and basil leaves."
+    },
+    { 
+      id: 8, 
+      image: "https://amandascookin.com/wp-content/uploads/2022/11/Pigs-in-a-Blanket-RCSQ.jpg" ,
+      name: "Pigs in a blanket",
+      text: "mini hot dogs wrapped in puff pastry and baked."
+    },
+    { 
+      id: 9, 
+      image: "https://images.unsplash.com/photo-1600728256404-aaa448921ad9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" ,
+      name: "Guacamole",
+      text: "a dip made from mashed avocado, tomatoes, onions, and lime juice."
+    },
+  ]
+  export const Menu_MainDish = [
+    { 
+      id: 1, 
+      image: "https://s3.amazonaws.com/img.cookspiration.com/devices/266/2/Honey.Grilled.Salmon.and.Asparagus.ipad.jpg" ,
+      name: "Grilled Salmon with Asparagus" ,
+      text: "Fresh salmon fillet grilled to perfection, served with grilled asparagus spears and a lemon butter sauce."
+    
+    },
+    { 
+      id: 2,
+      image: "https://media.blueapron.com/recipes/589/square_newsletter_images/20150109-2028-290-5848/FP_011915_3_20Eye_20Round_20Roast_20Beef_20-_202477_20SQ.jpg?quality=80&width=850&format=pjpg" ,
+      name: "Beef Tenderloin with Roasted Potatoes",
+      text: "Succulent beef tenderloin cooked to your liking and served with crispy roasted potatoes and a red wine reduction sauce."
+    },
+    { id: 3,
+      image: "https://assets.bonappetit.com/photos/5ea8f0df16738800085ad5d2/1:1/w_1125,h_1125,c_limit/Chicken-Parmesean-Recipe-Lede.jpg" ,
+      name: "Chicken Parmesan",
+      text: "Breaded chicken breast topped with tomato sauce, melted mozzarella cheese, and served with spaghetti."
+    },
+    { 
+      id: 4, 
+      image: "https://www.budgetbytes.com/wp-content/uploads/2022/03/Easy-Vegetable-Stir-Fry-V1.jpg" ,
+      name: "Vegetable Stir-Fry",
+      text: "A healthy and delicious option, featuring fresh vegetables stir-fried with your choice of protein and served with steamed rice."
+    },
+    { 
+      id: 5, 
+      image: "https://bakeitwithlove.com/wp-content/uploads/2022/06/Spanish-Seafood-Paella-sq.jpg" ,
+      name: "Seafood Paella",
+      text: "A Spanish classic, featuring saffron-infused rice, mixed seafood, chorizo, and vegetables."
+    },
+    { 
+      id: 6, 
+      image: "https://i0.wp.com/www.pardonyourfrench.com/wp-content/uploads/2021/01/Classic-French-Beef-Bourguignon-35.jpg?resize=1170%2C1753&ssl=1" ,
+      name: "Beef Bourguignon",
+      text: "A French classic, featuring tender beef slow-cooked in red wine with bacon, mushrooms, and onions, served with mashed potatoes."
+    },
+    { 
+      id: 7, 
+      image: "https://www.simplyrecipes.com/thmb/sdTBmeRjdzbQ11qBVJfjbPU54Hs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2012__11__Vegetarian-Lasagna-LEAD-1-6173a71bfd1347aa8d7659150e87b8f4.jpg" ,
+      name: "Vegetarian Lasagna",
+      text: "Layers of pasta, spinach, ricotta cheese, and tomato sauce, topped with melted mozzarella cheese."
+    },
+    { 
+      id: 8, 
+      image: "https://images.themodernproper.com/billowy-turkey/production/posts/2021/Butter-Chicken-16.jpg?w=1200&h=1800&q=82&fm=jpg&fit=crop&dm=1612504134&s=2c706da6174ee9f16c79fea0fef3d796" ,
+      name: "Butter Chicken",
+      text: "A popular Indian dish, featuring tender chicken in a rich, creamy tomato sauce, served with naan bread."
+    },
+    { 
+      id: 9, 
+      image: "https://food-images.files.bbci.co.uk/food/recipes/lemon_and_thyme_pork_15402_16x9.jpg" ,
+      name: "Pork Schnitzel with Potato Salad",
+      text: "Breaded pork cutlet fried to perfection, served with a tangy potato salad and lemon wedges."
+    },
+  ]
   
   export default reviews
