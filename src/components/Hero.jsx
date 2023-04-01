@@ -3,6 +3,7 @@ import Spoon from './Spoon'
 import styled from 'styled-components'
 import steak from '../assets/steak.png'
 import Button from './Button'
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -16,7 +17,7 @@ const Hero = () => {
           ingredients that are sure to satisfy any
             appetite.
         </SampleText>
-        <Button />     
+        <Link to="/Menu"> <Button /></Link>
       </div>
       <img src={steak} alt="steak" />
     </HeroWrapper>

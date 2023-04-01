@@ -5,7 +5,7 @@ import '@splidejs/react-splide/css';
 import { AiFillInstagram } from 'react-icons/ai'
 import Spoon from './Spoon'
 import { Cocktails, slides } from './ChefData';
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -61,6 +61,7 @@ const SliderComponent = () => {
             return(
                 <SplideSlide id={images.id} key={images.id}>
                      <Card>
+                    <p>{images.name}</p>
                     <img src={images.image} alt="kep" />
                     <Insta />
                      </Card>
@@ -70,7 +71,7 @@ const SliderComponent = () => {
         })};
         </Splide>
         <ButtonWrapper>
-          <Button>Show More</Button>
+          <Link to="/Menu">  <Button>Show More</Button></Link>
         </ButtonWrapper>
         <TextWrap>
             <Title>Drink Specials</Title>
@@ -150,14 +151,27 @@ const Title = styled.h1`
     }
 `
 const Card = styled.div`
-  min-height: 25rem;
+  min-height: 26rem;
   boder-radius: 2rem;
-  overflow:hidden;
   cursor: pointer;
   z-index: 10;
     &:hover ${Insta} {
     opacity: 1;
   }
+  &:hover p {
+    display: flex;
+  }
+  }
+  p {
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    display: none;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   img{
     border-radius: 1rem;

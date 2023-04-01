@@ -53,7 +53,7 @@ const Wrapper = styled.div`
 const PositionDiv = styled.div`
     position: relative;
     width: 700px;
-    height:600px;
+    height:800px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,9 +61,10 @@ const PositionDiv = styled.div`
     flex-direction: column;
     @media (max-width: 700px){
         padding: 1rem 1rem;
+        width: 100%;
     }
     @media (max-width: 500px){
-        padding: 2rem 2rem;
+        padding: 0rem 1rem;
     }
     @media (max-width: 300px){
         padding: 1rem 1rem;
@@ -95,15 +96,24 @@ const Name = styled.h1`
 const Text = styled.p`
     color: white;
     max-width: 700px;
-    margin-top: 2rem;
+    margin-top: 3rem;
     text-align: center;
     font-size: 1.2rem;
     letter-spacing: 1px;
     line-height:1.5rem;
+    @media (max-width: 700px){
+        max-width: 400px;
+    }
+    @media (max-width: 350px){
+        font-size:0.8rem;
+    }
 `
 const Job = styled.p`
     color:  #CDBE70;
     font-weight:600;
+    @media (max-width: 350px){
+        margin-top: 1rem;
+    }
 `
 const RightArrow = styled.div`
     color: #CDBE70;
@@ -117,7 +127,7 @@ const RightArrow = styled.div`
         transition: 0.3s ease;
     }
     @media (max-width: 700px){
-        right: 1rem;
+        right: 5rem;
     }
 `
 const LeftArrow = styled.div`
@@ -132,7 +142,7 @@ const LeftArrow = styled.div`
         transition: 0.3s ease;
     }
     @media (max-width: 700px){
-        left: 1rem;
+        left: 5rem;
     }
 `
 

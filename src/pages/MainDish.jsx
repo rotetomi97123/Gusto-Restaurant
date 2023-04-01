@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 // https://images.unsplash.com/photo-1572715376701-98568319fd0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80
 //https://images.unsplash.com/photo-1654922207993-2952fec328ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80
 
-const Menu = () => {
+const MainDish = () => {
 
   const [options, setOptions] = useState({
     perPage: 3,
@@ -53,84 +53,21 @@ const Menu = () => {
   return (
     <PageMenu>
         <Navbar />
-          <Title>Menu</Title>
+       <ButtonWrapper>
+          <TitleLink to="/Menu"><Title>Menu</Title></TitleLink>
+       </ButtonWrapper>
           <ButtonWrapper>
             <Link to="/"><Btn>Appetizers</Btn> </Link>
             <Link to="/MainDishes"><Btn>MainDish</Btn> </Link>
             <Link to="/"><Btn>Dessert</Btn> </Link>
             <Link to="/"><Btn>Drinks</Btn> </Link>
           </ButtonWrapper>
-          <MenuTextWrapper>
-            <img src="https://images.unsplash.com/photo-1572715376701-98568319fd0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="kep1" />
-            <MenuText>At our restaurant, our chefs strive to create an exceptional dining experience that is second to none. Our menu is a testament to their culinary skills, featuring a diverse range of dishes that showcase the finest ingredients and flavors from around the world.</MenuText>
-            <img src="https://images.unsplash.com/photo-1654922207993-2952fec328ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="kep1" />
-          </MenuTextWrapper>
-        <TitleWrapper>
-              <SmallTitle>Appetizers</SmallTitle>
-              <Line />
-            </TitleWrapper>
-        <Splide options={options}>
-              {Menu_appetizer.map((recipe) => {
-                return(
-                  <SplideSlide id={recipe.id}>
-                    <Card>
-                        <p>{recipe.name}</p>
-                        <h5>{recipe.text}</h5>
-                        <h2>${recipe.price}</h2>
-                        <ImageWrapper>
-                          <img src={recipe.image} alt={recipe.name} />
-                        </ImageWrapper>
-                    </Card>
-                  </SplideSlide>
-                )
-              })};
-            </Splide>
-            <TitleWrapper>
+          <TitleWrapper>
               <SmallTitle>Main dishes</SmallTitle>
               <Line />
             </TitleWrapper>
-        <Splide options={options}>
+            <Splide options={options}>
               {Menu_MainDish.map((recipe) => {
-                return(
-                  <SplideSlide id={recipe.id}>
-                    <Card>
-                        <p>{recipe.name}</p>
-                        <h5>{recipe.text}</h5>
-                        <h2>${recipe.price}</h2>
-                        <ImageWrapper>
-                          <img src={recipe.image} alt={recipe.name} />
-                        </ImageWrapper>
-                    </Card>
-                  </SplideSlide>
-                )
-              })};
-            </Splide>
-            <TitleWrapper>
-              <SmallTitle>Menu_Dessert</SmallTitle>
-              <Line />
-            </TitleWrapper>
-        <Splide options={options}>
-              {Menu_Dessert.map((recipe) => {
-                return(
-                  <SplideSlide id={recipe.id}>
-                    <Card>
-                        <p>{recipe.name}</p>
-                        <h5>{recipe.text}</h5>
-                        <h2>${recipe.price}</h2>
-                        <ImageWrapper>
-                          <img src={recipe.image} alt={recipe.name} />
-                        </ImageWrapper>
-                    </Card>
-                  </SplideSlide>
-                )
-              })};
-            </Splide>
-            <TitleWrapper>
-              <SmallTitle>Menu_Drinks</SmallTitle>
-              <Line />
-            </TitleWrapper>
-        <Splide options={options}>
-              {Menu_Drinks.map((recipe) => {
                 return(
                   <SplideSlide id={recipe.id}>
                     <Card>
@@ -148,6 +85,7 @@ const Menu = () => {
     </PageMenu>
   )
 }
+
 const PageMenu = styled.div`    
   padding: 1rem 2rem;
   background-color: #0A0A0A;
@@ -155,48 +93,44 @@ const PageMenu = styled.div`
   scroll-behavior: smooth;
   padding-bottom: 5rem;
 `
+
+const TitleLink = styled(Link)`
+    text-decoration: none;
+    `
 const Title = styled.h1`
+    padding: 0rem 2rem;
     text-align:center;
     font-size: 4rem;
     color: #CDBE70;
-    min-widht:100px;
+    &:hover {
+        color: white;
+    }
+    Link {
+        text-decoration: none;
+    }
     @media (max-width: 900px){
         font-size: 3rem;
     }
 `
-const MenuTextWrapper = styled.div`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    img {
-      max-height: 550px;
-      object-fit: cover;
-      border-radius: 1rem;
-      margin: 0 1rem;
+const Line = styled.div`
+  border-top: 2px solid #CDBE70;
+  width: 230px;
+  margin-top: 5px;
+  box-shadow: 0px 0px 5px 1px #888888;
+`
+const SmallTitle = styled.h1`
+    text-align:center;
+    font-size: 2rem;
+    color: #CDBE70;
+    min-widht:100px;
+    margin-top:2rem;
+    @media (max-width: 900px){
+        font-size: 3rem;
     }
-    @media (max-width: 1200px){
-      flex-direction: column;
-      margin-top: 1rem;
-  }
-`
-const MenuText = styled.p`
-    color: white;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    text-align: center;
-    max-width: 550px;
-    align-self: center;
-    line-height: 3.5rem;
-`
-const TitleWrapper = styled.div`
-    display:flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
 `
 const ButtonWrapper = styled.div`
   width: 100%;
-  height: 150px;
+  height: 100px;
   display:flex;
   justify-content:center;
   align-items: center;
@@ -219,21 +153,11 @@ const Btn = styled.button`
       transition: 0.4s ease;
 }
 `
-const Line = styled.div`
-  border-top: 2px solid #CDBE70;
-  width: 230px;
-  margin-top: 5px;
-  box-shadow: 0px 0px 5px 1px #888888;
-`
-const SmallTitle = styled.h1`
-    text-align:center;
-    font-size: 2rem;
-    color: #CDBE70;
-    min-widht:100px;
-    margin-top:2rem;
-    @media (max-width: 900px){
-        font-size: 3rem;
-    }
+const TitleWrapper = styled.div`
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 `
 const ImageWrapper = styled.div`
     max-width:600px;
@@ -274,5 +198,4 @@ const Card = styled.div`
     }
 `;
 
-
-export default Menu
+export default MainDish
