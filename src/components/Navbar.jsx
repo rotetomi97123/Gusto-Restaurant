@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <NavWrapper>
-        <Link to="/Menu"><img src={logo} alt="logo"  /></Link>
+        <Link to="/"><img src={logo} alt="logo"  /></Link>
         <Ulwrapper>
             <li><a href="#home"><Link to="/">Home</Link></a></li>
             <li><a href="#about"><Link to="">Our Story</Link></a></li>
@@ -180,6 +180,9 @@ const StyledLink = styled(Link)`
     color: white;
     font-size: 1.2rem;
     cursor: pointer;
+    @media (max-width: 800px){
+        display: none;
+    }
 `
 const LogInWrapper = styled.div`
     display: flex;
@@ -200,9 +203,6 @@ const LogInWrapper = styled.div`
             transition: 0.4s;
         }
         
-    @media (max-width: 800px){
-        display: none;
-    }
     }
 `
 const AnimatedHeading = styled.h1`
