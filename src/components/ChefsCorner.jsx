@@ -3,8 +3,28 @@ import ChefData from './ChefData'
 import styled from 'styled-components'
 import black from '../assets/black.png'
 import Spoon from './Spoon'
+import { useRef, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const ChefsCorner = () => {
+
+    // Animation start
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.2 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1.5 } }
+  };
+// Animation end
+
     const [count, setCount] = React.useState(0)
 
     const plus = () => {
@@ -22,6 +42,8 @@ const ChefsCorner = () => {
         }
     }
     return(
+        <div ref={ref}>
+      <motion.div animate={controls} initial="hidden" variants={fadeIn}>
         <Wrapper id='chefscorner'>
             <Spoon text="Chef's Corner" />
             <PositionDiv>
@@ -35,6 +57,8 @@ const ChefsCorner = () => {
                 <RightArrow onClick={plus}>&gt;</RightArrow>
             </PositionDiv>
         </Wrapper>
+        </motion.div>
+     </div>
     )
 }
 const Wrapper = styled.div`

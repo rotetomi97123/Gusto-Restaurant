@@ -4,17 +4,29 @@ import styled from 'styled-components'
 import Spoon from '../assets/spoon.svg'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+import { aboutUs } from './ChefData'
+import { useRef } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const About = () => {
+    
+// Animation start
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.2 });
 
-    const slides = [
-        { id: 1, image: 'https://images.unsplash.com/photo-1592861956120-e524fc739696?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' },
-        { id: 2, image: 'https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80' },
-        { id: 3, image: 'https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' },
-        { id: 4, image: 'https://images.unsplash.com/photo-1505275350441-83dcda8eeef5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80' },
-        { id: 5, image: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' },
-        { id: 6, image: 'https://images.unsplash.com/photo-1601001815853-3835274403b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' },
-      ];
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1.3 } }
+  };
+// Animation end
+
       const [options, setOptions] = useState({
         perPage: 1,
         type: "loop",
@@ -25,6 +37,8 @@ const About = () => {
       });
     
   return (
+    <div ref={ref}>
+    <motion.div animate={controls} initial="hidden" variants={fadeIn}>
     <Wrapper id='about'>
         <Section1>
             <SpoonDiv>
@@ -35,7 +49,7 @@ const About = () => {
         </Section1>
         <SectionImg>
             <Splide options={options}>
-             {slides.map((images) => {
+             {aboutUs.map((images) => {
                 return(
                     <SplideSlide id={images.id} key={images.id}>
                         <Card>
@@ -54,6 +68,8 @@ const About = () => {
             <p>Our carefully curated menu features only the finest cuts of beef, sourced from the world's best suppliers, ensuring that every mouthful is a true indulgence.</p>
         </Section2>
     </Wrapper>
+    </motion.div>
+    </div>
   );
 };
 const Card = styled.div`

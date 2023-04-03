@@ -1,9 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
 import Spoon from './Spoon'
+import { useRef, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const Newsletter = () => {
+
+  // Animation start
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.2 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1.5 } }
+  };
+// Animation end
+
   return (
+    <div ref={ref}>
+      <motion.div animate={controls} initial="hidden" variants={fadeIn}>
     <Wrapper>
         <Letter>
         </Letter>
@@ -16,6 +38,8 @@ const Newsletter = () => {
             </InputWrapper>
         </LetterBody>
     </Wrapper>
+    </motion.div>
+     </div>
   )
 }
 const Wrapper = styled.div`

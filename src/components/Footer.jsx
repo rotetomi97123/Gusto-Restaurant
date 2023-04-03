@@ -4,10 +4,32 @@ import logo from '../assets/logo3.png'
 import black from '../assets/black.png'
 import Spoon from './Spoon'
 import { BsInstagram, BsLinkedin, BsFacebook } from 'react-icons/bs'
+import { useRef, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 
 const Footer = () => {
+
+// Animation start
+const controls = useAnimation();
+const [ref, inView] = useInView({ threshold: 0.2 });
+
+useEffect(() => {
+  if (inView) {
+    controls.start('visible');
+  }
+}, [controls, inView]);
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 1.5 } }
+};
+// Animation end
+
   return (
+    <div ref={ref}>
+    <motion.div animate={controls} initial="hidden" variants={fadeIn}>
     <Wrapper>
         <Section>
             <h3>Contact Us</h3>
@@ -33,6 +55,8 @@ const Footer = () => {
                Saturday-Sunday:<br /> 07:00am -11:00 Pm</p>
         </Section>
     </Wrapper>
+    </motion.div>
+     </div>
   )
 }
 

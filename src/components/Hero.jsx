@@ -1,16 +1,36 @@
-import React from 'react'
 import Spoon from './Spoon'
 import styled from 'styled-components'
-import steak from '../assets/steak.png'
+import steak from '../assets/steak22.png'
 import Button from './Button'
 import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const Hero = () => {
+
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.2 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1.3 } }
+  };
   return (
+        <div ref={ref}>
+      <motion.div animate={controls} initial="hidden" variants={fadeIn}>
     <HeroWrapper>
+        
       <div>
         <Spoon text="Chase The New Flavour" />
         <BigText>WHERE EVERY DISH IS <br /> A WORK OF ART</BigText>
+
         <SampleText>Join us for an unforgettable dining
           experience.<br/> Our menu offers a variety of 
           dishes made with fresh,<br/> high-quality 
@@ -21,6 +41,8 @@ const Hero = () => {
       </div>
       <img src={steak} alt="steak" />
     </HeroWrapper>
+      </motion.div>
+    </div>
   )
 }
 const HeroWrapper = styled.div`

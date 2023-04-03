@@ -1,15 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , useRef} from 'react'
 import Navbar from '../components/Navbar'
 import styled from "styled-components"
-import { Splide, SplideSlide} from '@splidejs/react-splide'
-import '@splidejs/react-splide/css';
-import { Menu_appetizer, Menu_MainDish , Menu_Dessert, Menu_Drinks } from '../components/ChefData'
 import { Link } from 'react-router-dom';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
-// https://images.unsplash.com/photo-1572715376701-98568319fd0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80
-//https://images.unsplash.com/photo-1654922207993-2952fec328ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80
 
 const Menu = () => {
+
+  // Animation start
+const controls = useAnimation();
+const [ref, inView] = useInView({ threshold: 0.2 });
+
+useEffect(() => {
+  if (inView) {
+    controls.start('visible');
+  }
+}, [controls, inView]);
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 1.2 } }
+};
+// Animation end
 
   const [options, setOptions] = useState({
     perPage: 3,
@@ -52,99 +65,23 @@ const Menu = () => {
  
   return (
     <PageMenu>
+    <div ref={ref}>
+    <motion.div animate={controls} initial="hidden" variants={fadeIn}>
         <Navbar />
           <Title>Menu</Title>
           <ButtonWrapper>
-            <Link to="/"><Btn>Appetizers</Btn> </Link>
-            <Link to="/MainDishes"><Btn>MainDish</Btn> </Link>
-            <Link to="/"><Btn>Dessert</Btn> </Link>
-            <Link to="/"><Btn>Drinks</Btn> </Link>
+            <Link to="/MainDish" state={{ name: "Menu_appetizer" }}><Btn>Appetizers</Btn> </Link>
+            <Link to="/MainDish" state={{ name: "Menu_MainDish" }}><Btn>MainDish</Btn> </Link>
+            <Link to="/MainDish" state={{ name: "Menu_Dessert" }}><Btn>Dessert</Btn> </Link>
+            <Link to="/MainDish" state={{ name: "Menu_Drinks" }} ><Btn>Drinks</Btn> </Link>
           </ButtonWrapper>
           <MenuTextWrapper>
             <img src="https://images.unsplash.com/photo-1572715376701-98568319fd0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="kep1" />
             <MenuText>At our restaurant, our chefs strive to create an exceptional dining experience that is second to none. Our menu is a testament to their culinary skills, featuring a diverse range of dishes that showcase the finest ingredients and flavors from around the world.</MenuText>
             <img src="https://images.unsplash.com/photo-1654922207993-2952fec328ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="kep1" />
           </MenuTextWrapper>
-        <TitleWrapper>
-              <SmallTitle>Appetizers</SmallTitle>
-              <Line />
-            </TitleWrapper>
-        <Splide options={options}>
-              {Menu_appetizer.map((recipe) => {
-                return(
-                  <SplideSlide id={recipe.id}>
-                    <Card>
-                        <p>{recipe.name}</p>
-                        <h5>{recipe.text}</h5>
-                        <h2>${recipe.price}</h2>
-                        <ImageWrapper>
-                          <img src={recipe.image} alt={recipe.name} />
-                        </ImageWrapper>
-                    </Card>
-                  </SplideSlide>
-                )
-              })};
-            </Splide>
-            <TitleWrapper>
-              <SmallTitle>Main dishes</SmallTitle>
-              <Line />
-            </TitleWrapper>
-        <Splide options={options}>
-              {Menu_MainDish.map((recipe) => {
-                return(
-                  <SplideSlide id={recipe.id}>
-                    <Card>
-                        <p>{recipe.name}</p>
-                        <h5>{recipe.text}</h5>
-                        <h2>${recipe.price}</h2>
-                        <ImageWrapper>
-                          <img src={recipe.image} alt={recipe.name} />
-                        </ImageWrapper>
-                    </Card>
-                  </SplideSlide>
-                )
-              })};
-            </Splide>
-            <TitleWrapper>
-              <SmallTitle>Menu_Dessert</SmallTitle>
-              <Line />
-            </TitleWrapper>
-        <Splide options={options}>
-              {Menu_Dessert.map((recipe) => {
-                return(
-                  <SplideSlide id={recipe.id}>
-                    <Card>
-                        <p>{recipe.name}</p>
-                        <h5>{recipe.text}</h5>
-                        <h2>${recipe.price}</h2>
-                        <ImageWrapper>
-                          <img src={recipe.image} alt={recipe.name} />
-                        </ImageWrapper>
-                    </Card>
-                  </SplideSlide>
-                )
-              })};
-            </Splide>
-            <TitleWrapper>
-              <SmallTitle>Menu_Drinks</SmallTitle>
-              <Line />
-            </TitleWrapper>
-        <Splide options={options}>
-              {Menu_Drinks.map((recipe) => {
-                return(
-                  <SplideSlide id={recipe.id}>
-                    <Card>
-                        <p>{recipe.name}</p>
-                        <h5>{recipe.text}</h5>
-                        <h2>${recipe.price}</h2>
-                        <ImageWrapper>
-                          <img src={recipe.image} alt={recipe.name} />
-                        </ImageWrapper>
-                    </Card>
-                  </SplideSlide>
-                )
-              })};
-            </Splide>
+    </motion.div>
+     </div>
     </PageMenu>
   )
 }
@@ -155,11 +92,15 @@ const PageMenu = styled.div`
   scroll-behavior: smooth;
   padding-bottom: 5rem;
 `
-const Title = styled.h1`
+const Title = styled.h1`  
     text-align:center;
     font-size: 4rem;
     color: #CDBE70;
     min-widht:100px;
+    @media (max-width: 1200px){
+      margin-top: 2rem;
+      margin-bottom:1rem;
+    }
     @media (max-width: 900px){
         font-size: 3rem;
     }
@@ -180,6 +121,7 @@ const MenuTextWrapper = styled.div`
   }
 `
 const MenuText = styled.p`
+    margin-bottom: 3rem;
     color: white;
     font-size: 1.2rem;
     letter-spacing: 2px;
@@ -188,18 +130,17 @@ const MenuText = styled.p`
     align-self: center;
     line-height: 3.5rem;
 `
-const TitleWrapper = styled.div`
-    display:flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-`
+
 const ButtonWrapper = styled.div`
   width: 100%;
   height: 150px;
   display:flex;
   justify-content:center;
   align-items: center;
+  @media (max-width: 1200px){
+    flex-direction: column;
+    height: 100%;
+  }
 `
 const Btn = styled.button`
   cursor:pointer;
@@ -217,6 +158,10 @@ const Btn = styled.button`
       color:   #0A0A0A;
       border: 1px solid   #0A0A0A;
       transition: 0.4s ease;
+}
+@media (max-width: 1200px){
+  margin-right: 0rem;
+  margin-bottom: 1rem;
 }
 `
 const Line = styled.div`

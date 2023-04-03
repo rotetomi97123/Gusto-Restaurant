@@ -6,10 +6,29 @@ import { AiFillInstagram } from 'react-icons/ai'
 import Spoon from './Spoon'
 import { Cocktails, slides } from './ChefData';
 import { Link } from 'react-router-dom';
+import { useRef } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 
 
 const SliderComponent = () => {
+
+  // Animation start
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.2 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1.5 } }
+  };
+// Animation end
 
     const [options, setOptions] = useState({
         perPage: 4,
@@ -51,6 +70,8 @@ const SliderComponent = () => {
       }, []);
       
     return (
+      <div ref={ref}>
+      <motion.div animate={controls} initial="hidden" variants={fadeIn}>
         <Wrapper id='popular'>
           <TextWrap>
             <Spoon text="Photo Galery" />
@@ -91,6 +112,8 @@ const SliderComponent = () => {
         })};
         </Splide>
           </Wrapper>
+          </motion.div>
+     </div>
       );
 };
 
