@@ -46,6 +46,9 @@ const Wrapper = styled.div`
     width: 100%;
     height: 45vh;
     position: relative;
+    @media (max-width: 400px){
+        height: 100%;
+    }
 `
 const Letter = styled.div`
     width:100%;

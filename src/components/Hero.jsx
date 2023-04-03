@@ -65,7 +65,10 @@ const HeroWrapper = styled.div`
   }
   @media (max-width: 400px){
     padding: 0rem 1rem;
+    height:120vh;
+    margin-top:5rem;
   }
+
   img {
     max-width: 800px;
     @media (max-width: 900px) {

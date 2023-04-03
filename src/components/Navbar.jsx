@@ -55,7 +55,7 @@ const Navbar = () => {
                 <li><a href="#popular">Popular</a></li>
                 <li><a href="#chefscorner">Chef's Corner</a></li>
                 <LogInWrapperMobil>
-                    <h2>Menu</h2>
+                    <MobileLink to="/Menu"><h2>Menu</h2></MobileLink>
                     <h2>Book Table</h2>
                 </LogInWrapperMobil>
             </MobileUl>}
@@ -118,6 +118,9 @@ const NavWrapper = styled.div`
         padding: 1rem 1rem 1rem 1rem;
     }
 }
+`
+const MobileLink = styled(Link)`
+    text-decoration: none;
 `
 const Ulwrapper = styled.ul`
     display: flex;

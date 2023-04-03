@@ -73,6 +73,9 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (max-width: 400px){
+        height: 100%;
+    }
 `
 const PositionDiv = styled.div`
     position: relative;

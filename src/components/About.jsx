@@ -119,6 +119,9 @@ const Wrapper = styled.div`
     @media (max-width: 500px){
         height: 160vh;
     }
+    @media (max-width: 400px){
+        height: 100%;
+    }
 `
 const SpoonDiv = styled.div`
     font-size:3rem;

@@ -76,6 +76,11 @@ const Wrapper = styled.div`
         justify-content: center;
         align-items: center;
     }
+    @media (max-width: 400px){
+        margin-top:6rem;
+        height: 100%;
+        padding-bottom:5rem;
+    }
 `
 const Rights = styled.p`
     color: grey;
