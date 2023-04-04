@@ -7,20 +7,6 @@ import emailjs from '@emailjs/browser';
 
 
 
-const SuccessMessage = styled.div`
-  position: fixed;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: green;
-  color: white;
-  padding: 1rem;
-  border-radius: 5px;
-  animation: ${keyframes`
-    from {opacity: 0; transform: translate(-50%, -40%)}
-    to {opacity: 1; transform: translate(-50%, -50%)}
-  `} 0.5s ease-in-out;
-`;
 
 
 const BookaTable = () => {
@@ -38,19 +24,19 @@ const BookaTable = () => {
     const form = useRef();
 
     const sendEmail = (e) => {
-    e.preventDefault();
-
+        e.preventDefault();
+        
     emailjs.sendForm('service_4eign23', 'template_3o68sln', form.current, '6gyiy4jF_EXII9KKF')
-        .then((result) => {
+    .then((result) => {
             console.log(result.text);
         }, (error) => {
             console.log(error.text);
         });
     };
     //email
-
-  return (
-    <Wrapper>
+    
+    return (
+        <Wrapper>
         <Navbar />
         <Form>
             <FormInside>
@@ -102,28 +88,28 @@ const BookaTable = () => {
 }
 
 const Wrapper = styled.div`
-  background-color: #0A0A0A;
-  font-family: 'Montserrat', sans-serif;
-  scroll-behavior: smooth;
+background-color: #0A0A0A;
+font-family: 'Montserrat', sans-serif;
+scroll-behavior: smooth;
 `
 const Form = styled.div`
-    background-image: url(${black});
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
-    background-attachment: fixed;
-    width: 100%;
-    height:120vh;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    @media (max-width: 1200px){
-        height:170vh;
-        margin-top: 4rem;
-    }
-    @media (max-width: 400px){
-        height:220vh;
-    }
+background-image: url(${black});
+background-size: cover;
+background-position: center;
+background-repeat: repeat;
+background-attachment: fixed;
+width: 100%;
+height:120vh;
+display:flex;
+justify-content: center;
+align-items: center;
+@media (max-width: 1200px){
+    height:170vh;
+    margin-top: 4rem;
+}
+@media (max-width: 400px){
+    height:220vh;
+}
 `
 
 const InputWrapper = styled.div`
@@ -145,24 +131,38 @@ const InputWrapper = styled.div`
         margin-left: 6.5rem;
         margin-right: 3rem;
         @media (max-width: 1000px){
-        margin-left: 1rem;
-        margin-right: 1rem;
-}
-@media (max-width: 700px){
-    width: 250px;
-}
-@media (max-width: 350px){
-    width:150px;
-}
-    }
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
         @media (max-width: 700px){
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            width: 250px;
+        }
+        @media (max-width: 350px){
+            width:150px;
+        }
+    }
+    @media (max-width: 700px){
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         
     }
-`
-const FormInside = styled.div`
+    `
+    const SuccessMessage = styled.div`
+      position: fixed;
+      top: 65%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: green;
+      color: white;
+      padding: 1rem;
+      border-radius: 5px;
+      animation: ${keyframes`
+        from {opacity: 0; transform: translate(-50%, -40%)}
+        to {opacity: 1; transform: translate(-50%, -50%)}
+      `} 0.5s ease-in-out;
+    `;
+    const FormInside = styled.div`
     width: 70%;
     height:75%;
     background-color: #0A0A0A;

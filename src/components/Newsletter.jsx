@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React,{useState} from 'react'
+import styled,{keyframes} from 'styled-components'
 import Spoon from './Spoon'
 import { useRef, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
@@ -7,6 +7,15 @@ import { useInView } from 'react-intersection-observer';
 import emailjs from '@emailjs/browser';
 
 const Newsletter = () => {
+
+    const [showMessage, setShowMessage] = useState(false);
+
+    function handleClick() {
+        setShowMessage(true);
+        setTimeout(() => {
+          setShowMessage(false);
+        }, 2000);
+      }
 
     //email
     const form = useRef();
@@ -51,7 +60,8 @@ const Newsletter = () => {
             <InputWrapper>
             <form ref={form} onSubmit={sendEmail}>
                 <Input placeholder='Type in your email' type="email" name="user_email"></Input>
-                <SubmitButton type="submit" value="Send">Subscribe</SubmitButton>
+                <SubmitButton type="submit" value="Send" onClick={handleClick}>Subscribe</SubmitButton>
+                {showMessage && <SuccessMessage>Your reservation was succesfull!</SuccessMessage>}
                 </form>
             </InputWrapper>
         </LetterBody>
@@ -68,6 +78,20 @@ const Wrapper = styled.div`
         height: 100%;
     }
 `
+const SuccessMessage = styled.div`
+      position: fixed;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: green;
+      color: white;
+      padding: 1rem;
+      border-radius: 5px;
+      animation: ${keyframes`
+        from {opacity: 0; transform: translate(-50%, -40%)}
+        to {opacity: 1; transform: translate(-50%, -50%)}
+      `} 0.5s ease-in-out;
+    `;
 const Letter = styled.div`
     width:100%;
     height:20vh;
