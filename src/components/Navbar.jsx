@@ -37,7 +37,7 @@ const Navbar = () => {
         <LogInWrapper>
             <StyledLink to="/Menu"><AnimatedHeading>Menu</AnimatedHeading></StyledLink>
             <Line>|</Line>
-            <StyledLink to="/Menu"><AnimatedHeading >Book a table</AnimatedHeading ></StyledLink>
+            <StyledLink to="/BookaTable"><AnimatedHeading >Book a table</AnimatedHeading ></StyledLink>
         </LogInWrapper>
         <HamburgerMenu onClick={() => {setActive(!active)}}>
             {active ? <GiKnifeFork />  : <RxHamburgerMenu /> }
@@ -56,7 +56,7 @@ const Navbar = () => {
                 <li><a href="#chefscorner">Chef's Corner</a></li>
                 <LogInWrapperMobil>
                     <MobileLink to="/Menu"><h2>Menu</h2></MobileLink>
-                    <h2>Book Table</h2>
+                    <MobileLink to="/BookaTable"><h2>Book a Table</h2></MobileLink>
                 </LogInWrapperMobil>
             </MobileUl>}
             </AnimatePresence>

@@ -24,6 +24,10 @@ const fadeIn = {
 };
 // Animation end
 
+
+
+
+// Slider start
   const [options, setOptions] = useState({
     perPage: 3,
     type: 'slide',
@@ -63,17 +67,16 @@ const fadeIn = {
     };
   }, []);
  
+// Slider End
+
   return (
     <PageMenu>
     <div ref={ref}>
     <motion.div animate={controls} initial="hidden" variants={fadeIn}>
         <Navbar />
-          <Title>Menu</Title>
+          <Title>About our Menu</Title>
           <ButtonWrapper>
-            <Link to="/MainDish" state={{ name: "Menu_appetizer" }}><Btn>Appetizers</Btn> </Link>
-            <Link to="/MainDish" state={{ name: "Menu_MainDish" }}><Btn>MainDish</Btn> </Link>
-            <Link to="/MainDish" state={{ name: "Menu_Dessert" }}><Btn>Dessert</Btn> </Link>
-            <Link to="/MainDish" state={{ name: "Menu_Drinks" }} ><Btn>Drinks</Btn> </Link>
+            <Link to="/MainDish" state={{ name: "Menu_appetizer" }}><Btn>Show Menu</Btn> </Link>
           </ButtonWrapper>
           <MenuTextWrapper>
             <img src="https://images.unsplash.com/photo-1572715376701-98568319fd0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="kep1" />
@@ -104,6 +107,10 @@ const Title = styled.h1`
     @media (max-width: 900px){
         font-size: 3rem;
     }
+    @media (max-width: 400px){
+      margin-top: 5rem;
+
+    }
 `
 const MenuTextWrapper = styled.div`
     display: flex;
@@ -114,6 +121,10 @@ const MenuTextWrapper = styled.div`
       object-fit: cover;
       border-radius: 1rem;
       margin: 0 1rem;
+      @media (max-width: 400px){
+        max-height: 350px;
+
+      }
     }
     @media (max-width: 1200px){
       flex-direction: column;
@@ -129,6 +140,10 @@ const MenuText = styled.p`
     max-width: 550px;
     align-self: center;
     line-height: 3.5rem;
+    @media (max-width: 400px){
+      line-height: 2.5rem;
+      margin-top: 1rem;
+    }
 `
 
 const ButtonWrapper = styled.div`

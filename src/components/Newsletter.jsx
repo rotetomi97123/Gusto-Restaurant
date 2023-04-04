@@ -4,8 +4,24 @@ import Spoon from './Spoon'
 import { useRef, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import emailjs from '@emailjs/browser';
 
 const Newsletter = () => {
+
+    //email
+    const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_4eign23', 'template_zshroap', form.current, '6gyiy4jF_EXII9KKF')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+  //email
 
   // Animation start
   const controls = useAnimation();
@@ -33,8 +49,10 @@ const Newsletter = () => {
             <Spoon text="Newsletter" />
             <Title>Subscribe to our newsletter!</Title>
             <InputWrapper>
-                <Input placeholder='Type in your email'></Input>
-                <SubmitButton>Subscribe</SubmitButton>
+            <form ref={form} onSubmit={sendEmail}>
+                <Input placeholder='Type in your email' type="email" name="user_email"></Input>
+                <SubmitButton type="submit" value="Send">Subscribe</SubmitButton>
+                </form>
             </InputWrapper>
         </LetterBody>
     </Wrapper>
@@ -99,10 +117,15 @@ const InputWrapper = styled.div`
     display:flex;
     width:100%;
     margin-top: 2rem;
-    @media (max-width: 700px){
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    form{
+        display:flex;
+        width:100%;
+        margin-top: 2rem;
+        @media (max-width: 700px){
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
     }
 `
 const Input = styled.input`

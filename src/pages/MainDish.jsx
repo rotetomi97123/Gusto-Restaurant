@@ -13,6 +13,11 @@ import { useInView } from 'react-intersection-observer';
 
 const MainDish = () => {
 
+  const [menu, setMenu] = useState(Menu_appetizer)
+  const [ title , setTitle ] = useState("Appertizer")
+  const location = useLocation()
+  const { name } = location.state
+
   // Animation start
 const controls = useAnimation();
 const [ref, inView] = useInView({ threshold: 0.2 });
@@ -28,11 +33,6 @@ const fadeIn = {
   visible: { opacity: 1, transition: { duration: 1.5 } }
 };
 // Animation end
-  
-  const [menu, setMenu] = useState(Menu_appetizer)
-  const [ title , setTitle ] = useState("Appertizer")
-  const location = useLocation()
-  const { name } = location.state
 
 
   const [options, setOptions] = useState({
@@ -138,6 +138,10 @@ const Title = styled.h1`
     }
     @media (max-width: 900px){
         font-size: 3rem;
+    }
+    @media (max-width: 400px){
+      margin-top: 5rem;
+
     }
 `
 const Line = styled.div`
