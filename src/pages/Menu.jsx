@@ -94,6 +94,7 @@ const PageMenu = styled.div`
   font-family: 'Montserrat', sans-serif;
   scroll-behavior: smooth;
   padding-bottom: 5rem;
+  height:100vh;
 `
 const Title = styled.h1`  
     text-align:center;
