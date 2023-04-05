@@ -30,9 +30,9 @@ const Navbar = () => {
         <Link to="/"><img src={logo} alt="logo"  /></Link>
         <Ulwrapper>
             <li><a href="#home"><Link to="/">Home</Link></a></li>
-            <li><a href="#about"><Link to="">Our Story</Link></a></li>
-            <li><a href="#popular"><Link to="">Popular Dishes</Link></a></li>
-            <li><a href="#chefscorner"><Link to="">Chef's Corner</Link></a></li>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#popular">Popular Dishes</a></li>
+            <li><a href="#chefscorner">Chef's Corner</a></li>
         </Ulwrapper>
         <LogInWrapper>
             <StyledLink to="/Menu"><AnimatedHeading>Menu</AnimatedHeading></StyledLink>
@@ -128,10 +128,15 @@ const Ulwrapper = styled.ul`
     color: white;
     font-size: 1.2rem;
     list-style-type: none;
+    
     li {
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+          margin-right: 1.5rem; 
+        }
         a{
             color: white;
-            margin-right: 0.5rem;
             cursor: pointer;
             text-decoration: none;
             &:hover {

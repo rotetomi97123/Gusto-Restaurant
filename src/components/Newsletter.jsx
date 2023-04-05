@@ -61,7 +61,7 @@ const Newsletter = () => {
             <form ref={form} onSubmit={sendEmail}>
                 <Input placeholder='Type in your email' type="email" name="user_email"></Input>
                 <SubmitButton type="submit" value="Send" onClick={handleClick}>Subscribe</SubmitButton>
-                {showMessage && <SuccessMessage>Your reservation was succesfull!</SuccessMessage>}
+                {showMessage && <SuccessMessage>You successfully subscribed to our Newsletter!</SuccessMessage>}
                 </form>
             </InputWrapper>
         </LetterBody>

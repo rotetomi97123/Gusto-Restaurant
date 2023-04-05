@@ -132,6 +132,7 @@ const Text = styled.p`
         max-width: 400px;
     }
     @media (max-width: 450px){
+        height:250px;
         font-size:0.8rem;
     }
 `
@@ -155,8 +156,7 @@ const RightArrow = styled.div`
     }
     @media (max-width: 700px){
         right: 5rem;
-        margin-top: 2.5rem;
-    }
+        }
 `
 const LeftArrow = styled.div`
     color: #CDBE70;
@@ -171,8 +171,6 @@ const LeftArrow = styled.div`
     }
     @media (max-width: 700px){
         left: 5rem;
-        margin-top: 2.5rem;
-
     }
 `
 

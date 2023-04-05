@@ -33,7 +33,7 @@ export const reviews = [
       image:
         'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
       text:
-        "I'm the manager at Gusto. I've been working in the restaurant industry for over a decade, and I can honestly say that Gusto is one of the best places I've ever worked. As a manager, my job is to make sure that everything runs smoothly, from the kitchen to the dining room. I work closely with the chefs, servers, and other staff members to ensure that our guests have the best possible experience when they come to Gusto.",
+        "I'm the manager at Gusto. I've been working in the restaurant industry for over a decade, and I can honestly say that Gusto is one of the best places I've ever worked. As a manager, my job is to make sure that everything runs smoothly, from the kitchen to the dining room.",
     },
   ];
   export const Cocktails = [

@@ -125,6 +125,9 @@ const Logo3 = styled(BsLinkedin)`
     &:hover{
         color: #CDBE70;
     }
+    @media (max-width: 400px){
+    margin-bottom:2rem;
+    }
     `
 const LogoWrapper = styled.div`
     display: flex;
@@ -137,6 +140,10 @@ const Section1 = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    @media (max-width: 1450px){
+        padding: 0 2rem;
+        width:100%;
+    }
 `
 const Section = styled.div`
     width: 30%;
@@ -154,6 +161,9 @@ const Section = styled.div`
     p {
         color:white;
         line-height: 1.5rem;
+    }
+    @media (max-width: 1450px){
+        width:100%;
     }
 `
 
